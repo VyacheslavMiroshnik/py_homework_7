@@ -12,18 +12,17 @@ directories = {
       }       
 def search_by_people_name(doc_number="", some_data=False):
   if not doc_number:
-    doc_number=input("Введите номер документа ")
-    find_doc  = False 
-  try:
-    for element_document in documents:
-        if doc_number == element_document["number"]:
-            find_doc = True
-            if not some_data:
-                print (element_document["name"])
-            else:
-                return documents.index(element_document)   
-  except KeyError:
-      print('Такого документа нет ')
+   doc_number = input("Введите номер документа ")
+  find_doc  = False 
+  for element_document in documents:
+    if doc_number == element_document["number"]:
+      find_doc = True
+      if not some_data:
+        print (element_document["name"])
+      else:
+        return documents.index(element_document)   
+  if not find_doc:
+    print("Такого документа нет в списке")
 
 def full_info():
   for element_document in documents:
