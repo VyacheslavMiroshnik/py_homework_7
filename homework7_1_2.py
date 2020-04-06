@@ -9,14 +9,27 @@ def div(some_list):
     print( float(some_list[1]) / float(some_list[2]))
 def incr(some_list):
     print( float(some_list[1]) * float(some_list[2]))
+def neg_numbers(some_list):
+    neg = False
+    for value in some_list[1:]:
+        if float(value) < 0 :
+            neg = True
+    if neg:
+        print("Допупскаются только 2 положительных числа")        
+    else:
+        math_dict[s[0]](s)
+           
+
 math_dict = {
     '+' : add,
     '-' : sub,
     '/' : div,
     '*' : incr
 }
+assert(s[0] in math_dict),"Нет такой операции"
+
 try:
-    math_dict[s[0]](s)
+    neg_numbers(s)
 except ZeroDivisionError :
     print("На ноль делить нельзя")
 except KeyError:
